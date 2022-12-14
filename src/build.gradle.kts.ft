@@ -1,0 +1,39 @@
+plugins {
+
+}
+
+android {
+    compileSdk = <must_specify>
+
+    defaultConfig {
+        minSdk = <must_specify>
+        targetSdk = <must_specify>
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
+
+        buildFeatures {
+            viewBinding = true
+        }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            setProguardFiles(
+                listOf(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    file("proguard-rules.pro")
+                )
+            )
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = <must_specify>
+        targetCompatibility = <must_specify>
+    }
+}
+
+dependencies {
+
+}
